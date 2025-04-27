@@ -13,6 +13,7 @@ const RecordingPage = () => {
 
   useEffect(() => {
     const fetchRecordings = async() => {
+      // console.log("pawan >>> calls", calls?.toString());
       if(!calls)  return ;
       try {
         const callData = await Promise.all(calls.map((call) => call.queryRecordings()));
@@ -23,6 +24,7 @@ const RecordingPage = () => {
         console.log(error);
       }
     }
+    fetchRecordings();
   }, [calls]);
 
   if(isLoading) return <LoaderUI />
